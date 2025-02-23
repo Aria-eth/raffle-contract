@@ -18,7 +18,7 @@ contract DeployRaffle is Script {
         if (config.subId == 0) {
             // create a subscription
             CreateSubscription createSubscription = new CreateSubscription();
-            (uint256 subId, address vrfCoordinator) = createSubscription.createSubscriptionUsingConfig();
+            (uint256 subId, address vrfCoordinator) = createSubscription.createSubscription(config.vrfCoordinator);
             config.subId = subId;
             config.vrfCoordinator = vrfCoordinator;
 

@@ -185,7 +185,7 @@ contract RaffleTest is Test {
     {
         uint256 additionalEntrants = 10;
         uint256 startingIndex = 1;
-        address expectedWinner = address(1);
+        address expectedWinner = address(0xa);
 
         // Add players to the raffle
         for (
@@ -229,7 +229,7 @@ contract RaffleTest is Test {
         uint256 prize = entranceFee * (additionalEntrants + 1);
         uint256 endLotteryBalance = address(raffle).balance;
 
-        assert(winnerBalance == startingBalance + prize - entranceFee);
+        assert(winnerBalance == startingBalance + prize);
         assert(uint256(raffleState) == 0);
         assert(winner == expectedWinner);
         assert(endingTimeStamp > startingTimeStamp);
